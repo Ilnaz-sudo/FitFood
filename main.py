@@ -14,7 +14,7 @@ class Gender(Screen):
         self.ids.male.text_color = 1, 1, 1, 1
 
         self.ids.next.disabled = False
-
+        #dfdff
         self.ids.female.md_bg_color = 0.9, 0.9, 0.9, 1
         self.ids.female.text_color = 0, 0, 0 ,1
 
