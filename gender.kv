@@ -1,0 +1,72 @@
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+<Gender>:
+    FloatLayout:
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: "10dp"
+            spacing: "10dp"
+
+            MDProgressBar:
+                id: progress_bar
+                size_hint: 0.6, None
+                pos_hint:{"center_x": 0.5, "top":0.95} #95 процентов
+
+        MDLabel:
+            text: "Выберите ваш пол"
+            halign: "center"
+            font_style: "H5"
+            size_hint_y: None
+            pos_hint:{"top":0.9}
+
+        MDLabel:
+            text:"Это нужно что бы составить индивидуальный план"
+            halign: "center"
+            font_style: "Caption"
+            size_hint_y: None
+            pos_hint:{"top":0.85}
+
+
+        FloatLayout:
+
+            MDRaisedButton:
+                size_hint_x: 0.8
+                id: male
+                on_press: root.male_button_press()
+                theme_text_color: 'Custom'
+                md_bg_color: 0.9, 0.9, 0.9, 1 #Светло серый фон
+                text_color: 0, 0, 0 ,1 #Черный
+                pos_hint:{"center_x":0.5, "center_y": 0.55}
+                text: "Мужик"
+
+            MDRaisedButton:
+                size_hint_x: 0.8
+                id: female
+                on_press: root.female_button_press()
+                theme_text_color: 'Custom'
+                md_bg_color: 0.9, 0.9, 0.9, 1 #Светло серый фон
+                text_color: 0, 0, 0 ,1 #Черный
+                pos_hint:{"center_x":0.5, "center_y": 0.45}
+                text: "Баба"
+
+            MDRoundFlatButton:
+                size_hint_x: 0.6
+                id: next
+                text: "Дальше"
+                theme_text_color: 'Custom'
+                md_bg_color: 0, 0, 0, 1
+                text_color: 1, 1, 1 ,1
+                pos_hint:{"center_x":0.5, "center_y": 0.05}
+                disabled: True
+                on_press:
+                    app.root.transition=NoTransition()
+                    root.manager.current = 'age'
+
+
+
+
+
+
+
+
+
+
