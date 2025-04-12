@@ -1,28 +1,28 @@
-<Age>:
-    FloatLayout:
-        BoxLayout:
-            orientation: 'horizontal'
-            padding: "10dp"
-            spacing: "10dp"
-            MDIconButton:
-                icon: "arrow-left"
-                pos_hint:{"center_x": 0.5, "top":0.99}
-                on_press:
-                    root.manager.current ='gender'
+<Age>:                                                  # Обращаемся к классу(к окну) Age
+    FloatLayout:                                        # Основной box где хранятся наши остальные боксы и виджеты
+        BoxLayout:                                      # Box для прогресс бара и кнопки со стрелочкой в лево
+            orientation: 'horizontal'                   # Ориентация внутри бокса горизонтальная
+            padding: "10dp"                             # Отступ
+            spacing: "10dp"                             # Отступ
+            MDIconButton:                               # Кнопка стрелочка влево
+                icon: "arrow-left"                      # Стрелочка влево
+                pos_hint:{"center_x": 0.5, "top":0.99}  # Располагаем по центру и наверху относительно BoxLayout
+                on_press:                               # Если нажать на кнопку
+                    root.manager.current ='gender'      # Включаем функцию из файла main.py
 
 
 
-            MDProgressBar:
-                id: progress_bar
-                size_hint: 0.6, None
-                pos_hint:{"center_x": 0.5, "top":0.95} #95 процентов
+            MDProgressBar:                              # Прогрессбар
+                id: progress_bar                        # Идентификатор, нужен для обращения к прогрессбару из main.py
+                size_hint: 0.6, None                    # По х длина прогрессбара 60% от BoxLayout, y(ширину блокируем)
+                pos_hint:{"center_x": 0.5, "top":0.95}  # Располагаем по центру и наверху относительно BoxLayout
 
-        MDLabel:
-            text: "Укажите возраст"
-            halign: "center"
-            font_style: "H5"
-            size_hint_y: None
-            pos_hint:{"top":0.9}
+        MDLabel:                                        # Текстовое поле в FloatLayout(не в BoxLayout)
+            text: "Укажите возраст"                     # Сам текст
+            halign: "center"                            # Ориентация теста по центру
+            font_style: "H5"                            # Размер текста
+            size_hint_y: None                           # Блокируем по y
+            pos_hint:{"top":0.9}                        # Устанавливаем текст на вреху, ниже прогресс бара, 90 процентов
 
         MDLabel:
             text:"Это нужно что бы составить индивидуальный план"
@@ -32,16 +32,14 @@
             pos_hint:{"top":0.85}
 
 
-        FloatLayout:
+        FloatLayout:                                    # Дополнительный бокс для расположения кнопки
 
-
-
-            MDRoundFlatButton:
-                size_hint_x: 0.6
+            MDRoundFlatButton:                          # Кнопка с закругленными концами
+                size_hint_x: 0.6                        # Длина кнопки 60 процентов от длины окна
                 id: next
                 text: "Дальше"
-                theme_text_color: 'Custom'
-                md_bg_color: 0, 0, 0, 1
-                text_color: 1, 1, 1 ,1
-                pos_hint:{"center_x":0.5, "center_y": 0.05}
-                disabled: True
+                theme_text_color: 'Custom'              # Тема кнопки вручную
+                md_bg_color: 0, 0, 0, 1                 # Фон кнопки черный
+                text_color: 1, 1, 1 ,1                  # Цвет теста кнопки белый
+                pos_hint:{"center_x":0.5, "center_y": 0.05}     # Располагаем в самом низу окна и по центру
+                disabled: True                          # Блокируем кнопку(делаем его не активным)

@@ -1,22 +1,22 @@
-#:import NoTransition kivy.uix.screenmanager.NoTransition
-<Gender>:
-    FloatLayout:
-        BoxLayout:
-            orientation: 'horizontal'
-            padding: "10dp"
-            spacing: "10dp"
+#:import NoTransition kivy.uix.screenmanager.NoTransition                       # Импорт библиотеки для блокировки переходов во время переключения экранов
+<Gender>:                                                                       # Обращаемся к классу(к окну) Gender
+    FloatLayout:                                                                # Основной box где хранятся наши остальные боксы и виджеты
+        BoxLayout:                                                              # Box для прогресс бара
+            orientation: 'horizontal'                                           # Ориентация внутри бокса горизонтальная
+            padding: "10dp"                                                     # Отступ
+            spacing: "10dp"                                                     # Отступ
 
-            MDProgressBar:
-                id: progress_bar
-                size_hint: 0.6, None
-                pos_hint:{"center_x": 0.5, "top":0.95} #95 процентов
+            MDProgressBar:                                                      # Прогрессбар
+                id: progress_bar                                                # Идентификатор, нужен для обращения к прогрессбару из main.py
+                size_hint: 0.6, None                                            # По х длина прогрессбара 60% от BoxLayout, y(ширину блокируем)
+                pos_hint:{"center_x": 0.5, "top":0.95} #95 процентов            # Располагаем по центру и наверху относительно BoxLayout
 
-        MDLabel:
-            text: "Выберите ваш пол"
-            halign: "center"
-            font_style: "H5"
-            size_hint_y: None
-            pos_hint:{"top":0.9}
+        MDLabel:                                                                # Текстовое поле в FloatLayout(не в BoxLayout)
+            text: "Выберите ваш пол"                                            # Сам текст
+            halign: "center"                                                    # Ориентация теста по центру
+            font_style: "H5"                                                    # Размер текста
+            size_hint_y: None                                                   # Блокируем по y
+            pos_hint:{"top":0.9}                                                # Устанавливаем текст на вреху, ниже прогресс бара, 90 процентов
 
         MDLabel:
             text:"Это нужно что бы составить индивидуальный план"
@@ -26,16 +26,16 @@
             pos_hint:{"top":0.85}
 
 
-        FloatLayout:
+        FloatLayout:                                                             # Дополнительный бокс для расположения кнопок
 
-            MDRaisedButton:
-                size_hint_x: 0.8
+            MDRaisedButton:                                                      # Кнопка
+                size_hint_x: 0.8                                                 # Длина кнопки 80 процентов от длины окна
                 id: male
-                on_press: root.male_button_press()
-                theme_text_color: 'Custom'
-                md_bg_color: 0.9, 0.9, 0.9, 1 #Светло серый фон
-                text_color: 0, 0, 0 ,1 #Черный
-                pos_hint:{"center_x":0.5, "center_y": 0.55}
+                on_press: root.male_button_press()                               # Если нажать то обращаемся к функции из main.py
+                theme_text_color: 'Custom'                                       # Тема кнопки вручную
+                md_bg_color: 0.9, 0.9, 0.9, 1                                    # Светло серый фон
+                text_color: 0, 0, 0 ,1                                           # Черный текст
+                pos_hint:{"center_x":0.5, "center_y": 0.55}                      # Располагаем в центре и по х и чуть выше центра по y(55%)
                 text: "Мужик"
 
             MDRaisedButton:
@@ -43,8 +43,8 @@
                 id: female
                 on_press: root.female_button_press()
                 theme_text_color: 'Custom'
-                md_bg_color: 0.9, 0.9, 0.9, 1 #Светло серый фон
-                text_color: 0, 0, 0 ,1 #Черный
+                md_bg_color: 0.9, 0.9, 0.9, 1
+                text_color: 0, 0, 0 ,1
                 pos_hint:{"center_x":0.5, "center_y": 0.45}
                 text: "Баба"
 
@@ -56,10 +56,10 @@
                 md_bg_color: 0, 0, 0, 1
                 text_color: 1, 1, 1 ,1
                 pos_hint:{"center_x":0.5, "center_y": 0.05}
-                disabled: True
+                disabled: True                                                  # Блокируем кнопку(делаем его не активным)
                 on_press:
-                    app.root.transition=NoTransition()
-                    root.manager.current = 'age'
+                    app.root.transition=NoTransition()                          # При переключении между экранами отключаем анимацию
+                    root.manager.current = 'age'                                # Переключаемся к следующему классу(окну) Age
 
 
 
