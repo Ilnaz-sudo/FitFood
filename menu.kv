@@ -1,0 +1,34 @@
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+<Menu>:
+    FloatLayout:
+
+        MDLabel:
+            text:"Главная страница"
+            halign: 'center'
+            size_hint_y: None
+            pos_hint:{"top": 0.7}
+
+        FloatLayout:
+            orientation: "horizontal"
+            MDIconButton:
+                icon: "cube-scan"
+                width: root.width/3
+                pos_hint:{"center_x": 0.1, "top":0.1}
+                on_press:
+                    app.root.transition=NoTransition()
+                    root.manager.current = 'camera'
+
+            MDIconButton:
+                icon: "home"
+                width: root.width/3
+                pos_hint:{"center_x": 0.5, "top":0.12}
+
+            MDIconButton:
+                icon: "tooltip-account"
+                width: root.width/3
+                pos_hint:{"center_x": 0.9, "top":0.1}
+                on_press:
+                    app.root.transition=NoTransition()
+                    root.manager.current = 'profile'
+
+
