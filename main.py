@@ -1,9 +1,7 @@
 from kivy.lang import Builder
-from kivy.uix.label import Label
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.app import MDApp
-from kivy.uix.recycleview.views import RecycleDataViewBehavior
-from kivy.properties import BooleanProperty
+
 
 Builder.load_file("gender.kv")
 Builder.load_file("age.kv")
@@ -35,8 +33,7 @@ class Gender(Screen):
         self.ids.male.md_bg_color = 0.9, 0.9, 0.9, 1
         self.ids.male.text_color = 0, 0, 0, 1
 
-class SelectableLabel(RecycleDataViewBehavior, Label):
-    selected = BooleanProperty(False)
+
 
 class Age(Screen):
     def __init__(self, **kwargs):
