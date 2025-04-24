@@ -1,0 +1,78 @@
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+<Anthropometry>:
+    FloatLayout:
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: "10dp"
+            spacing: "10dp"
+            MDIconButton:
+                icon: "arrow-left"
+                pos_hint:{"center_x": 0.5, "top":0.99}
+                on_press:
+                    root.manager.current ='age'
+
+
+
+            MDProgressBar:
+                id: progress_bar
+                size_hint: 0.6, None
+                pos_hint:{"center_x": 0.5, "top":0.95} #95 процентов
+
+        MDLabel:
+            text: "Укажите вес и рост"
+            halign: "center"
+            font_style: "H5"
+            size_hint_y: None
+            pos_hint:{"top":0.9}
+
+        MDLabel:
+            text:"Это нужно что бы составить индивидуальный план"
+            halign: "center"
+            font_style: "Caption"
+            size_hint_y: None
+            pos_hint:{"top":0.85}
+
+        FloatLayout:
+            orientation: 'horizontal'
+            size_hint: None, None
+            size: dp(300), dp(250)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: dp(10)
+            id:box
+
+            MDTextButton:
+                id: unit1
+                font_size: "30sp"
+                theme_text_color: 'Custom'
+                text_color: 0, 0, 0 , 0.5
+                on_release: root.unit_button()
+                size_hint: None, None
+                pos_hint:{"center_x":0.45, "center_y": 0.55}
+                text: "кг"
+
+            MDTextButton:
+                id: unit2
+                font_size: "30sp"
+                theme_text_color: 'Custom'
+                text_color: 0, 0, 0 , 0.5
+                on_release: root.unit_button2()
+                size_hint: None, None
+                pos_hint:{"center_x":0.85, "center_y": 0.55}
+                text: "см"
+
+
+
+
+        MDRoundFlatButton:
+            size_hint_x: 0.6
+            id: next
+            text: "Дальше"
+            theme_text_color: 'Custom'
+            md_bg_color: 0, 0, 0, 1
+            text_color: 1, 1, 1 ,1
+            pos_hint:{"center_x":0.5, "center_y": 0.05}
+            disabled: False
+            on_press:
+
+                app.root.transition=NoTransition()
+                root.manager.current = 'menu'

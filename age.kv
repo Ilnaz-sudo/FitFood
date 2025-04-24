@@ -1,4 +1,5 @@
 #:import NoTransition kivy.uix.screenmanager.NoTransition
+
 <Age>:
     FloatLayout:
         BoxLayout:
@@ -19,30 +20,34 @@
                 pos_hint:{"center_x": 0.5, "top":0.95} #95 процентов
 
         MDLabel:
-            text: "Укажите возраст"
+            text: app.translate("weight_prompt")
             halign: "center"
             font_style: "H5"
             size_hint_y: None
             pos_hint:{"top":0.9}
 
         MDLabel:
-            text:"Это нужно что бы составить индивидуальный план"
+            text: app.translate("description")
             halign: "center"
             font_style: "Caption"
             size_hint_y: None
             pos_hint:{"top":0.85}
 
+        FloatLayout:
+            id: box
+
 
         MDRoundFlatButton:
             size_hint_x: 0.6
             id: next
-            text: "Дальше"
+            text: app.translate("next")
             theme_text_color: 'Custom'
             md_bg_color: 0, 0, 0, 1
             text_color: 1, 1, 1 ,1
             pos_hint:{"center_x":0.5, "center_y": 0.05}
             disabled: False
             on_press:
+
                 app.root.transition=NoTransition()
-                root.manager.current = 'menu'
+                root.manager.current = 'anthropometry'
 

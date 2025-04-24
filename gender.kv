@@ -5,7 +5,11 @@
             orientation: 'horizontal'
             padding: "10dp"
             spacing: "10dp"
-
+            MDIconButton:
+                icon: "arrow-left"
+                pos_hint:{"center_x": 0.5, "top":0.99}
+                on_press:
+                    root.manager.current ='language'
             MDProgressBar:
                 id: progress_bar
                 size_hint: 0.6, None
@@ -33,20 +37,20 @@
                 id: male
                 on_press: root.male_button_press()
                 theme_text_color: 'Custom'
-                md_bg_color: 0.9, 0.9, 0.9, 1 #Светло серый фон
+                md_bg_color: 1, 1, 1, 1 #Светло серый фон
                 text_color: 0, 0, 0 ,1 #Черный
                 pos_hint:{"center_x":0.5, "center_y": 0.55}
-                text: "Мужик"
+                text: "Мужчина"
 
             MDRaisedButton:
                 size_hint_x: 0.8
                 id: female
                 on_press: root.female_button_press()
                 theme_text_color: 'Custom'
-                md_bg_color: 0.9, 0.9, 0.9, 1 #Светло серый фон
+                md_bg_color: 1, 1, 1, 1 #Светло серый фон
                 text_color: 0, 0, 0 ,1 #Черный
                 pos_hint:{"center_x":0.5, "center_y": 0.45}
-                text: "Баба"
+                text: "Женщина"
 
             MDRoundFlatButton:
                 size_hint_x: 0.6
